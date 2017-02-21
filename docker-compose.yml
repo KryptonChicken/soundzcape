@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+    nginx:
+        build:
+            context: .
+            dockerfile: Dockerfile.nginx
+        image: soundzcape-nginx
+        container_name: nginx
+        ports:
+            - "80:80"
+        volumes:
+            - dist:/var/www/html
+    webpack:
+        build:
+            context: .
+            dockerfile: Dockerfile.webpack
+        image: soundzcape-webpack
+        container_name: webpack
+        volumes:
+            - ./frontend:/usr/src/app
+            - dist:/usr/src/app/build
+volumes:
+    dist:
+        driver: local
