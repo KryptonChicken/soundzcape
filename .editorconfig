@@ -6,7 +6,9 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 indent_style = space
+
+[*.{py,js,css,json,conf,yml,md}]
 indent_size = 4
 
-[*.{html}]
+[*.{html,rst}]
 indent_size = 2
