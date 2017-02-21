@@ -1,0 +1,8 @@
+FROM node:7.5.0-alpine
+
+WORKDIR /usr/src/app
+ADD frontend/package.json package.json
+
+RUN npm install --quiet
+
+CMD npm run dev
