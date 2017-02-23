@@ -20,6 +20,14 @@ services:
         volumes:
             - ./frontend:/usr/src/app
             - dist:/usr/src/app/build
+    python:
+        build:
+            context: .
+            dockerfile: Dockerfile.python
+        image: soundzcape-python
+        container_name: python
+        volumes:
+            - ./backend:/usr/src/app
 volumes:
     dist:
         driver: local
