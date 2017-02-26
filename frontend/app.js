@@ -1,20 +1,23 @@
-// ES6 module import/export check
-import utils from './utils';
+import * as THREE from 'three';
+import globals from './globals';
 
-const jsStatus = document.getElementById('js-status');
-const jsEs6Check = document.getElementById('js-es6-check');
-const jsModuleCheck = document.getElementById('js-module-check');
+const scene = new THREE.Scene();
+const camera = new THREE.OrthographicCamera(
+    globals.leftCoord, globals.rightCoord,
+    globals.topCoord, globals.bottomCoord,
+    1, 1000
+);
+const renderer = new THREE.WebGLRenderer({
+    antialias: true
+});
 
-const es6 = 'ES2015/ES6';
-const x = 5;
-const y = 10;
+renderer.setSize(globals.winWidth, globals.winHeight);
+document.body.appendChild(renderer.domElement);
 
-jsStatus.innerHTML = 'Javascript working!';
+const render = function () {
+    requestAnimationFrame(render);
 
-// Check if es6 template literal works.
-jsEs6Check.innerHTML = `JS version: ${es6}`;
+    renderer.render(scene, camera);
+};
 
-let addResult = utils.add(x, y);
-let arrowAddResult = utils.arrowAdd(x, y);
-
-jsModuleCheck.innerHTML = `ES6 modules working: ${addResult === arrowAddResult}`;
+render();
