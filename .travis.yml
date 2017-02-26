@@ -22,3 +22,11 @@ before_install:
 
 script:
     - docker-compose run webpack npm run test
+
+notifications:
+    webhooks:
+        urls:
+            - https://webhooks.gitter.im/e/d304a7bc34ddbf70ae81
+        on_success: change
+        on_failure: always
+        on_start: never
