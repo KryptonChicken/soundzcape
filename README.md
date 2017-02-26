@@ -1,5 +1,6 @@
 # Soundzcape
 
+[![TravisCI build status][travis_badge]][travis_link]
 [![Gitter][gitter_badge]][gitter_link]
 [![XO code style][xo_badge]][xo_link]
 
@@ -52,6 +53,8 @@ $ docker-compose up --build -d
 $ docker-compose down --rmi local -v
 ```
 
+[travis_badge]: https://travis-ci.org/KryptonChicken/soundzcape.svg?branch=dev
+[travis_link]: https://travis-ci.org/KryptonChicken/soundzcape
 [apache 2]: https://www.apache.org/licenses/LICENSE-2.0
 [gitter_badge]: https://badges.gitter.im/KryptonChicken/soundzcape.svg
 [gitter_link]: https://gitter.im/KryptonChicken/soundzcape?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
