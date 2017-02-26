@@ -19,6 +19,7 @@ services:
         container_name: webpack
         volumes:
             - ./frontend:/usr/src/app
+            - /usr/src/app/node_modules
             - dist:/usr/src/app/build
     python:
         build:
