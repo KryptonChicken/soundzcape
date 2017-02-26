@@ -2,11 +2,11 @@ function add(a, b) {
     return a + b;
 }
 
-let arrow_add = (a, b) => a + b;
+let arrowAdd = (a, b) => a + b;
 
-let utils = {
+const utils = {
     add,
-    arrow_add
+    arrowAdd
 };
 
 export default utils;

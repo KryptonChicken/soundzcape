@@ -1,20 +1,20 @@
 // ES6 module import/export check
-import utils from "./utils";
+import utils from './utils';
 
-const js_status = document.getElementById("js-status");
-const js_es6_check = document.getElementById("js-es6-check");
-const js_module_check = document.getElementById("js-module-check");
+const jsStatus = document.getElementById('js-status');
+const jsEs6Check = document.getElementById('js-es6-check');
+const jsModuleCheck = document.getElementById('js-module-check');
 
-const es6 = "ES2015/ES6";
+const es6 = 'ES2015/ES6';
 const x = 5;
 const y = 10;
 
-js_status.innerHTML = "Javascript working!";
+jsStatus.innerHTML = 'Javascript working!';
 
 // Check if es6 template literal works.
-js_es6_check.innerHTML = `JS version: ${es6}`;
+jsEs6Check.innerHTML = `JS version: ${es6}`;
 
-let add_result = utils.add(x, y);
-let arrow_add_result = utils.arrow_add(x, y);
+let addResult = utils.add(x, y);
+let arrowAddResult = utils.arrowAdd(x, y);
 
-js_module_check.innerHTML = `ES6 modules working: ${add_result == arrow_add_result}`;
+jsModuleCheck.innerHTML = `ES6 modules working: ${addResult === arrowAddResult}`;
