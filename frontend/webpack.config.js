@@ -1,11 +1,11 @@
-var path = require("path");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
+var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: "./app.js",
+    entry: './app.js',
     output: {
-        filename: "bundle.js",
-        path: path.resolve(__dirname, "build")
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'build')
     },
     watch: true,
     watchOptions: {
@@ -15,14 +15,14 @@ module.exports = {
         rules: [
             {
                 test: /\.html$/,
-                loader: "html-loader"
+                loader: 'html-loader'
             }, {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: "babel-loader",
+                loader: 'babel-loader',
                 options: {
                     presets: [
-                        ["es2015", { modules: false }]
+                        ['es2015', {modules: false}]
                     ]
                 }
             }
@@ -30,7 +30,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "index.html",
+            template: 'index.html',
             inject: 'body',
             hash: true
         })
