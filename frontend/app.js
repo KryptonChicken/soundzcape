@@ -1,5 +1,9 @@
+/* eslint no-unused-vars: ['error', {'varsIgnorePattern': 'css'}] */
+
 import * as THREE from 'three';
 import globals from './globals';
+
+import css from './style.css';
 
 const scene = new THREE.Scene();
 const camera = new THREE.OrthographicCamera(
