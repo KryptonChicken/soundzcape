@@ -12,44 +12,42 @@ We have a Gitter channel [here][gitter_room], feel free to talk to us!
 ## Development
 
 We use Docker to manage our development, continuous integration and production
-environment. Since we have multiple containers, docker-compose is used to
-control the application as a whole.
+environment. Each part of the application stack is isolated in a container and
+can be controlled as a group using docker-compose. You can start the
+development server using the following command:
 
-1. Fork this repository.
+```
+$ docker-compose up --build
+```
 
-2. Clone it to your local machine:
+The containers can be ran without building after the first time unless one of
+the configurations is modified. Omit `--build` to run Soundzcape without
+building, ie `docker-compose up`. After starting the containers,
+`http://localhost` should become available immediately. You can invoke commands
+in a specific containers using the `run` option:
 
-  ```
-  $ git clone http://github.com/<username>/soundzcape
-  ```
+```
+// Drop into a shell:
+$ docker-compose run nginx sh
 
-3. Build and run containers with docker-compose:
+// Run frontend test (xo-lint):
+# docker-compose run webpack npm run test
+```
 
-  ```
-  $ docker-compose up --build
+The names of the containers are `nginx`, `webpack` and `python`.
 
-  # Stop running containers with [ctrl-c]
-  ```
+### Detach mode
 
-  **Note:** You only need to build the containers for the first time or when
-  you changed some application configurations. Omit `--build` to run Soundzcape
-  without building.
-
-After starting the containers, `http://localhost` should become available
-immediately. You can run additional commands in a container using the `run`
-option. For example, to drop into a shell in the webpack container:
-
-    $ docker-compose run webpack sh
-
-Replaces `webpack` with `nginx` or `python` if required.
-
-You will be attached to the containers automatically when using the command in
-step 3. If you prefer the containers to stay in the background:
+You will be attached to the containers automatically when using the `up`
+command. If you prefer the containers to stay in the background:
 
 ```
 $ docker-compose up --build -d
+```
 
-# Stop running containers:
+Stop all running containers and delete untagged images and volumes:
+
+```
 $ docker-compose down --rmi local -v
 ```
 
