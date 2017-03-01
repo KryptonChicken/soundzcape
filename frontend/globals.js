@@ -1,18 +1,17 @@
-const winHeight = window.innerHeight;
-const winWidth = window.innerWidth;
+export const title = 'Soundzcape';
+export const version = '0.1.0';
 
-const leftCoord = -winWidth / 2;
-const rightCoord = winWidth / 2;
-const topCoord = winHeight / 2;
-const bottomCoord = -winHeight / 2;
+let instance = null;
 
-const globals = {
-    winHeight,
-    winWidth,
-    leftCoord,
-    rightCoord,
-    topCoord,
-    bottomCoord
-};
+// We use the singleton design pattern to store the main THREE.js objects.
+class Globals {
+    constructor() {
+        if (!instance) {
+            instance = this;
+        }
 
-export default globals;
+        return instance;
+    }
+}
+
+export const globals = new Globals();
