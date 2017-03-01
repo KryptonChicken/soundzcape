@@ -1,25 +1,11 @@
-/* eslint no-unused-vars: ['error', {'varsIgnorePattern': '\w+Css'}] */
+/* eslint no-unused-vars: ['error', {'varsIgnorePattern': '_\w+'}]
+          import/default: 0 */
 
-import * as THREE from 'three';
-
-import milligramCss from 'milligram';
-import customCss from './style.css';
+import _milligram from 'milligram';
+import _custom from './style.css';
 
 import {globals as g} from './globals';
-
-let initialWidth = window.innerWidth;
-let initialHeight = window.innerHeight;
-
-g.scene = new THREE.Scene();
-g.camera = new THREE.OrthographicCamera(
-    -initialWidth / 2, initialWidth / 2,
-    -initialHeight / 2, initialHeight / 2,
-    1, 1000
-);
-g.renderer = new THREE.WebGLRenderer({
-    antialias: true
-});
-g.renderer.setSize(initialWidth, initialHeight);
+import _audio from './audio';
 
 const render = function () {
     requestAnimationFrame(render);
@@ -35,6 +21,7 @@ window.addEventListener('resize', () => {
     g.camera.right = width / 2;
     g.camera.top = height / 2;
     g.camera.bottom = -height / 2;
+
     g.camera.updateProjectionMatrix();
 }, false);
 

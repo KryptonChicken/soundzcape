@@ -11,6 +11,7 @@ services:
             - "80:80"
         volumes:
             - dist:/var/www/html
+            - ./music:/var/www/html/music
     webpack:
         build:
             context: .
