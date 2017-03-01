@@ -7,6 +7,10 @@ import _custom from './style.css';
 import {globals as g} from './globals';
 import _audio from './audio';
 
+import c from './constants';
+
+g.renderer.setSize(c.initialWidth, c.initialHeight);
+
 const render = function () {
     requestAnimationFrame(render);
     g.renderer.render(g.scene, g.camera);

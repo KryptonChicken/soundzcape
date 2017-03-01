@@ -1,10 +1,6 @@
 import * as THREE from 'three';
 
-export const title = 'Soundzcape';
-export const version = '0.1.0';
-
-let initialWidth = window.innerWidth;
-let initialHeight = window.innerHeight;
+import c from './constants';
 
 // We use the singleton design pattern to store the main THREE.js objects.
 let instance = null;
@@ -16,16 +12,20 @@ class Globals {
 
         this.scene = new THREE.Scene();
         this.camera = new THREE.OrthographicCamera(
-            -initialWidth / 2, initialWidth / 2,
-            -initialHeight / 2, initialHeight / 2,
+            -c.initialWidth / 2, c.initialWidth / 2,
+            -c.initialHeight / 2, c.initialHeight / 2,
             1, 1000
         );
         this.renderer = new THREE.WebGLRenderer({antialias: true});
-        this.renderer.setSize(initialWidth, initialHeight);
         this.listener = new THREE.AudioListener();
+        this.audioLoader = new THREE.AudioLoader();
+        this.sound = new THREE.Audio(this.listener);
+
+        this.camera.add(this.listener);
 
         return instance;
     }
 }
 
+// eslint-disable-next-line import/prefer-default-export
 export const globals = new Globals();
