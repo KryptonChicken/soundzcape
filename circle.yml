@@ -1,0 +1,21 @@
+version: 2
+executorType: machine
+stages:
+    build:
+        workDir: ~/soundzcape
+        steps:
+            - type: checkout
+            - type: shell
+              name: Build and run docker images
+              command: |
+                docker --version
+                docker-compose --version
+                docker-compose up --build -d
+            - type: shell
+              name: Run lints and tests
+              command: |
+                docker-compose run webpack npm run test
+            - type: shell
+              name: Shutdown containers
+              command: |
+                docker-compose down
