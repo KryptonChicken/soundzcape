@@ -15,6 +15,7 @@ stages:
               name: Run lints and tests
               command: |
                 docker-compose run webpack npm run test
+                docker-compose run python flake8
             - type: shell
               name: Shutdown containers
               command: |

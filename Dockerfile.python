@@ -3,12 +3,13 @@ FROM python:3.6.0-alpine
 WORKDIR /usr/src/app
 
 COPY backend/requirements.txt .
+COPY backend/requirements_dev.txt .
 
 RUN apk --no-cache add --virtual .build-deps \
         gcc \
         make \
         musl-dev \
-    && pip install --no-cache-dir --upgrade -r requirements.txt \
+    && pip install --no-cache-dir --upgrade -r requirements_dev.txt \
     && apk del .build-deps \
     && apk --no-cache add entr \
         --repository http://dl-cdn.alpinelinux.org/alpine/v3.5/community

@@ -23,7 +23,7 @@ async def index(requests):
     })
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Sanic is not exposed to the internet directly, all traffic to /api
     # should be routed here by NGINX.
     app.run(host="0.0.0.0", port=8001, debug=True)
