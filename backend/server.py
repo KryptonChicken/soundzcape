@@ -8,11 +8,16 @@ should be asynchronous, blocking call should be called in a separate process.
 Any HTTP traffic to /api is routed here from NGINX.
 """
 
+import os
+
 from sanic import Sanic
 from sanic.response import json
 
 app = Sanic(__name__)
 app.config.LOGO = None
+
+CURRENT_PATH = os.path.dirname(os.path.realpath(__file__))
+MUSIC_PATH = os.path.join(CURRENT_PATH, 'music')
 
 
 @app.route("/api")
@@ -21,6 +26,21 @@ async def index(requests):
         "version": "0.1.0",
         "status": "ok"
     })
+
+
+@app.route("/api/music")
+async def music(requests):
+    try:
+        result = os.listdir(MUSIC_PATH)
+        status = "ok"
+    except Exception as e:
+        result = e
+        status = "error"
+
+    return json(dict(
+        status=status,
+        result=result
+    ))
 
 
 if __name__ == "__main__":
