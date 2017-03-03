@@ -30,6 +30,7 @@ services:
         container_name: python
         volumes:
             - ./backend:/usr/src/app
+            - ./music:/usr/src/app/music
 volumes:
     dist:
         driver: local
