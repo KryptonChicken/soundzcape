@@ -20,3 +20,6 @@ stages:
               name: Shutdown containers
               command: |
                 docker-compose down
+notify:
+    webhooks:
+        - url: https://webhooks.gitter.im/e/41e37b947d82b439beec
