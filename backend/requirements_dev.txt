@@ -1,3 +1,6 @@
 -r requirements.txt
 
 flake8
+pytest
+
+aiohttp  # For sanic unittests
