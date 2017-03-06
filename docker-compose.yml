@@ -29,8 +29,8 @@ services:
         image: soundzcape-python
         container_name: python
         volumes:
-            - ./backend:/usr/src/app
-            - ./music:/usr/src/app/music
+            - ./backend:/usr/src/backend
+            - ./music:/usr/src/backend/music
 volumes:
     dist:
         driver: local
