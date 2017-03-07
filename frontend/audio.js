@@ -1,4 +1,4 @@
-import {globals as g} from './globals';
+import g from './globals';
 
 let playing = false;
 let playButton = document.getElementById('play-button');
