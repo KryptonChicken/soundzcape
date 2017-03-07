@@ -1,31 +1,38 @@
 import * as THREE from 'three';
 
-import c from './constants';
+/* Application constants */
+const title = 'Soundzcape';
+const version = '0.1.0';
 
-// We use the singleton design pattern to store the main THREE.js objects.
-let instance = null;
-class Globals {
-    constructor() {
-        if (!instance) {
-            instance = this;
-        }
+const initialWidth = window.innerWidth;
+const initialHeight = window.innerHeight;
 
-        this.scene = new THREE.Scene();
-        this.camera = new THREE.OrthographicCamera(
-            -c.initialWidth / 2, c.initialWidth / 2,
-            -c.initialHeight / 2, c.initialHeight / 2,
-            1, 1000
-        );
-        this.renderer = new THREE.WebGLRenderer({antialias: true});
-        this.listener = new THREE.AudioListener();
-        this.audioLoader = new THREE.AudioLoader();
-        this.sound = new THREE.Audio(this.listener);
+/* Game objects */
+let scene = new THREE.Scene();
+let camera = new THREE.OrthographicCamera(
+    -initialWidth / 2, initialWidth / 2,
+    -initialHeight / 2, initialHeight / 2,
+    1, 1000
+);
+let renderer = new THREE.WebGLRenderer({antialias: true});
+let listener = new THREE.AudioListener();
+let audioLoader = new THREE.AudioLoader();
+let sound = new THREE.Audio(listener);
 
-        this.camera.add(this.listener);
+camera.add(listener);
 
-        return instance;
-    }
-}
+const globals = {
+    title,
+    version,
+    initialWidth,
+    initialHeight,
 
-// eslint-disable-next-line import/prefer-default-export
-export const globals = new Globals();
+    scene,
+    camera,
+    renderer,
+    listener,
+    audioLoader,
+    sound
+};
+
+export default globals;

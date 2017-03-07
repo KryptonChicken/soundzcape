@@ -4,12 +4,10 @@
 import _milligram from 'milligram';
 import _custom from './style.css';
 
-import {globals as g} from './globals';
+import g from './globals';
 import _audio from './audio';
 
-import c from './constants';
-
-g.renderer.setSize(c.initialWidth, c.initialHeight);
+g.renderer.setSize(g.initialWidth, g.initialHeight);
 
 const render = function () {
     requestAnimationFrame(render);
