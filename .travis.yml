@@ -22,7 +22,7 @@ before_install:
 
 script:
     - docker-compose run webpack npm run test
-    - docker-compose run python sh -c "flake8; pytest"
+    - docker-compose run python sh -c "flake8; python -m pytest"
 
 notifications:
     webhooks:
