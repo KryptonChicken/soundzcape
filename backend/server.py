@@ -11,7 +11,8 @@ Any HTTP traffic to /api is routed here from NGINX.
 import os
 
 from sanic import Sanic
-from sanic.response import json
+from rest_response import ok, error
+
 
 app = Sanic(__name__)
 app.config.LOGO = None
@@ -22,25 +23,18 @@ MUSIC_PATH = os.path.join(CURRENT_PATH, 'music')
 
 @app.route("/api")
 async def index(requests):
-    return json({
-        "version": "0.1.0",
-        "status": "ok"
-    })
+    return ok(version="0.1.0")
 
 
 @app.route("/api/music")
 async def music(requests):
     try:
-        result = os.listdir(MUSIC_PATH)
-        status = "ok"
-    except Exception as e:
-        result = e
-        status = "error"
+        # Use a in-memory DB to store this data when available.
+        return ok(music_list=os.listdir(MUSIC_PATH))
 
-    return json(dict(
-        status=status,
-        result=result
-    ))
+    except Exception as e:
+        print(e)
+        return error()
 
 
 if __name__ == "__main__":
