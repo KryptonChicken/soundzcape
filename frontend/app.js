@@ -6,6 +6,7 @@ import _custom from './style.css';
 
 import g from './globals';
 import _audio from './audio';
+import _ui from './ui';
 
 g.renderer.setSize(g.initialWidth, g.initialHeight);
 
