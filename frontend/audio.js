@@ -1,18 +1,41 @@
 import g from './globals';
 
-let playing = false;
-let playButton = document.getElementById('play-button');
+let lastPlayed = '';
 
-playButton.addEventListener('click', () => {
-    playButton.innerText = playing ? 'Play' : 'Pause';
-    if (playing) {
-        g.sound.pause();
+function toggle(soundtrack) {
+    if (g.sound.isPlaying) {
+        pause();
+    // eslint-disable-next-line no-negated-condition
+    } else if (soundtrack !== lastPlayed) {
+        g.audioLoader.load(soundtrack,
+            buffer => {
+                g.sound.setBuffer(buffer);
+                play();
+            },
+            xhr => {
+                let loadPercentage = Math.round(xhr.loaded / xhr.total * 100);
+                g.playBtnElem.innerHTML = `loading ${loadPercentage}%`;
+            },
+            xhr => console.log(xhr)
+        );
+        lastPlayed = soundtrack;
     } else {
-        g.sound.play();
+        play();
     }
-    playing = !playing;
-});
+}
 
-g.audioLoader.load('music/seico-heaven.wav', buffer => {
-    g.sound.setBuffer(buffer);
-});
+function play() {
+    g.sound.play();
+    g.playBtnElem.innerHTML = 'pause';
+}
+
+function pause() {
+    g.sound.pause();
+    g.playBtnElem.innerHTML = 'play';
+}
+
+const audio = {
+    toggle
+};
+
+export default audio;

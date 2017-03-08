@@ -8,13 +8,13 @@ canvas {
     height: 100%;
 }
 
-.overlay {
-    position: absolute;
-    z-index: 100;
+.controls {
+    margin: 10px;
 }
 
-#play-button {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.overlay {
+    /* Max-width make sure the HUD is 100% of the canvas width. */
+    max-width: 100%;
+    position: absolute;
+    z-index: 100;
 }
