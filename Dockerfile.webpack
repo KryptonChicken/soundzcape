@@ -1,4 +1,4 @@
-FROM node:7.5.0-alpine
+FROM node:7.7.1-alpine
 
 WORKDIR /usr/src/app
 ADD frontend/package.json package.json
