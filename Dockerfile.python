@@ -1,6 +1,7 @@
 FROM python:3.6.0-alpine
 
 WORKDIR /usr/src/backend
+ENV PYTHONPATH /usr/src/backend
 
 COPY backend/requirements.txt .
 COPY backend/requirements_dev.txt .
