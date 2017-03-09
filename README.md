@@ -1,13 +1,14 @@
 # Soundzcape
 
-[![TravisCI build status][travis_badge]][travis_link]
-[![Gitter][gitter_badge]][gitter_link]
-[![XO code style][xo_badge]][xo_link]
+[![CircleCI][circle badge]][circle link]
+[![TravisCI][travis badge]][travis link]
+[![Gitter][gitter badge]][gitter link]
+[![XO][xo badge]][xo link]
 
 Soundzcape is a 2D music [platformer] with maps procedurally generated from
 sound waves. This project is fully open source and [Apache 2] licensed.
 
-We have a Gitter channel [here][gitter_room], feel free to talk to us!
+We have a Gitter channel [here][gitter room], feel free to talk to us!
 
 ## Development
 
@@ -51,14 +52,16 @@ Stop all running containers and delete untagged images and volumes:
 $ docker-compose down --rmi local -v
 ```
 
-[travis_badge]: https://travis-ci.org/KryptonChicken/soundzcape.svg?branch=dev
-[travis_link]: https://travis-ci.org/KryptonChicken/soundzcape
+[circle badge]: https://circleci.com/gh/KryptonChicken/soundzcape.svg?style=shield
+[circle link]: https://circleci.com/gh/KryptonChicken/soundzcape
+[travis badge]: https://travis-ci.org/KryptonChicken/soundzcape.svg?branch=dev
+[travis link]: https://travis-ci.org/KryptonChicken/soundzcape
 [apache 2]: https://www.apache.org/licenses/LICENSE-2.0
-[gitter_badge]: https://badges.gitter.im/KryptonChicken/soundzcape.svg
-[gitter_link]: https://gitter.im/KryptonChicken/soundzcape?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
-[xo_badge]: https://img.shields.io/badge/code_style-XO-5ed9c7.svg
-[xo_link]: https://github.com/sindresorhus/xo
+[gitter badge]: https://badges.gitter.im/KryptonChicken/soundzcape.svg
+[gitter link]: https://gitter.im/KryptonChicken/soundzcape?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+[xo badge]: https://img.shields.io/badge/code_style-XO-5ed9c7.svg
+[xo link]: https://github.com/sindresorhus/xo
 [platformer]: https://en.wikipedia.org/wiki/Platform_game
 [Apache 2]: https://www.apache.org/licenses/LICENSE-2.0
-[gitter_room]: https://gitter.im/KryptonChicken/soundzcape
+[gitter room]: https://gitter.im/KryptonChicken/soundzcape
 [platformer]: https://en.wikipedia.org/wiki/Platform_game
