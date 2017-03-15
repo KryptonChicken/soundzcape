@@ -7,6 +7,10 @@ function toggle(soundtrack) {
         pause();
     // eslint-disable-next-line no-negated-condition
     } else if (soundtrack !== lastPlayed) {
+        if (lastPlayed !== '') {
+            g.sound.stop();
+        }
+
         g.audioLoader.load(soundtrack,
             buffer => {
                 g.sound.setBuffer(buffer);
