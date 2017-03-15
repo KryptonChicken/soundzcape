@@ -12,6 +12,7 @@ module.exports = {
     watchOptions: {
         poll: true
     },
+    devtool: 'eval-source-map',
     module: {
         rules: [
             {
