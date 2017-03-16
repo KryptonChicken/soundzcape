@@ -4,6 +4,7 @@
 import _milligram from 'milligram';
 import _custom from './style.css';
 
+import _checks from './checks';
 import g from './globals';
 import _audio from './audio';
 import _ui from './ui';
