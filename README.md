@@ -5,15 +5,16 @@
 [![Gitter][gitter badge]][gitter link]
 [![XO][xo badge]][xo link]
 
-Soundzcape is a 2D music [platformer] with maps procedurally generated from
-sound waves. This project is fully open source and [Apache 2] licensed.
+Soundzcape is a 2D music [platformer] with game maps procedurally generated
+from sound waves. This is an open source project licensed under [Apache 2], any
+contributions are welcome!
 
 We have a Gitter channel [here][gitter room], feel free to talk to us!
 
 ## Development
 
 We use Docker to manage our development, continuous integration and production
-environment. Each part of the application stack is isolated in a container and
+environments. Each part of the application stack is isolated in a container and
 can be controlled as a group using docker-compose. You can start the
 development server using the following command:
 
@@ -21,18 +22,18 @@ development server using the following command:
 $ docker-compose up --build
 ```
 
-The containers can be ran without building after the first time unless one of
-the configurations is modified. Omit `--build` to run Soundzcape without
-building, ie `docker-compose up`. After starting the containers,
-`http://localhost` should become available immediately. You can invoke commands
-in a specific containers using the `run` option:
+You only need to build the docker image for the first time, which will take a
+few minutes. The containers can then be started with just `docker-compose up`.
+With the development environments set up, you can visit `http://localhost` to
+see your changes in real time. You can invoke commands in a specific containers
+using the `run` option:
 
-```
-// Drop into a shell:
+```sh
+# Drop into a shell:
 $ docker-compose run nginx sh
 
-// Run frontend test (xo-lint):
-# docker-compose run webpack npm run test
+# Run frontend test (xo-lint):
+$ docker-compose run webpack npm run test
 ```
 
 The names of the containers are `nginx`, `webpack` and `python`.
@@ -46,7 +47,7 @@ command. If you prefer the containers to stay in the background:
 $ docker-compose up --build -d
 ```
 
-Stop all running containers and delete untagged images and volumes:
+To stop and remove the running containers:
 
 ```
 $ docker-compose down --rmi local -v
