@@ -1,3 +1,9 @@
+/**
+ * frontend/audio.js
+ * ~~~~~~~~~~~~~~~~~
+ * This module provides interface for controlling audio playback.
+ */
+
 import g from './globals';
 
 let lastPlayed = '';

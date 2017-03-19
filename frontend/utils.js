@@ -1,3 +1,9 @@
+/**
+ * frontend/utils.js
+ * ~~~~~~~~~~~~~~~~~
+ * This module provides utility functions.
+ */
+
 function checkFetchStatus(response) {
     return (response.status >= 200 && response.status < 300) ?
         Promise.resolve(response) :

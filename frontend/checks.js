@@ -1,6 +1,8 @@
 /**
- * This module checks if the target browser meets the necessary requirements
- * to run Soundzcape.
+ * frontend/checks.js
+ * ~~~~~~~~~~~~~~~~~~
+ * This module is executed before the others to checks if the target browser
+ * meets the necessary requirements to run Soundzcape.
  */
 
 function supportWebGL() {
