@@ -1,3 +1,10 @@
+/**
+ * frontend/globals.js
+ * ~~~~~~~~~~~~~~~~~~~
+ * This module defines application constants and initialize main game objects,
+ * which take advantage of ES6 module system's default singleton behaviour.
+ */
+
 import * as THREE from 'three';
 
 /* Application constants */

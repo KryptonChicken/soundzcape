@@ -1,3 +1,9 @@
+/**
+ * frontend/ui.js
+ * ~~~~~~~~~~~~~~
+ * This module controls the user interface, aka the HUD.
+ */
+
 import g from './globals';
 import audio from './audio';
 import utils from './utils';
