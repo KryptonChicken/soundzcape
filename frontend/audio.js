@@ -11,6 +11,8 @@ let lastPlayed = '';
 function toggle(soundtrack) {
     if (g.sound.isPlaying) {
         pause();
+    } else if (soundtrack === '') {
+        g.playBtnElem.innerHTML = 'No music';
     // eslint-disable-next-line no-negated-condition
     } else if (soundtrack !== lastPlayed) {
         if (lastPlayed !== '') {
