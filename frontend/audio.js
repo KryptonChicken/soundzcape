@@ -25,7 +25,7 @@ function toggle(soundtrack) {
                 play();
             },
             xhr => {
-                let loadPercentage = Math.round(xhr.loaded / xhr.total * 100);
+                const loadPercentage = Math.round(xhr.loaded / xhr.total * 100);
                 g.playBtnElem.innerHTML = `loading ${loadPercentage}%`;
             },
             xhr => console.log(xhr)

@@ -7,7 +7,7 @@
 
 function supportWebGL() {
     try {
-        let canvas = document.createElement('canvas');
+        const canvas = document.createElement('canvas');
         return Boolean(window.WebGLRenderingContext) && (
             canvas.getContext('webgl') ||
             canvas.getContext('experimental-webgl')
