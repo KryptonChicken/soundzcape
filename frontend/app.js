@@ -22,8 +22,8 @@ const render = function () {
 };
 
 window.addEventListener('resize', () => {
-    let width = window.innerWidth;
-    let height = window.innerHeight;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
 
     g.renderer.setSize(width, height);
     g.camera.left = -width / 2;

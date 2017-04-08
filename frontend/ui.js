@@ -8,7 +8,7 @@ import g from './globals';
 import audio from './audio';
 import utils from './utils';
 
-let musicSelElem = document.getElementById('music-selection');
+const musicSelElem = document.getElementById('music-selection');
 
 // Music control: track selection, play control
 let musicList = [];
