@@ -1,1 +1,4 @@
 sanic>=0.4.1
+
+# For audio manipulation
+numpy>=1.12.1
