@@ -17,10 +17,14 @@ function supportWebGL() {
     }
 }
 
-if (!supportWebGL()) {
-    // We only need to hide the HUD since THREE.js have not been initialised.
-    document.getElementById('no-webgl').style.display = 'block';
-    document.getElementById('hud').style.display = 'none';
+function check() {
+    if (!supportWebGL()) {
+        // We only need to hide the HUD since THREE.js have not been initialised.
+        document.getElementById('no-webgl').style.display = 'block';
+        document.getElementById('hud').style.display = 'none';
 
-    throw new Error('Browser incapable to run Soundzcape.');
+        throw new Error('Browser incapable to run Soundzcape.');
+    }
 }
+
+export default check;
