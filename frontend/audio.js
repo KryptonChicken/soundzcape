@@ -5,14 +5,25 @@
  */
 
 import g from './globals';
+import ui from './ui';
 
 let lastPlayed = '';
+
+function play() {
+    g.sound.play();
+    ui.playBtnElem.innerHTML = 'pause';
+}
+
+function pause() {
+    g.sound.pause();
+    ui.playBtnElem.innerHTML = 'play';
+}
 
 function toggle(soundtrack) {
     if (g.sound.isPlaying) {
         pause();
     } else if (soundtrack === '') {
-        g.playBtnElem.innerHTML = 'No music';
+        ui.playBtnElem.innerHTML = 'No music';
     // eslint-disable-next-line no-negated-condition
     } else if (soundtrack !== lastPlayed) {
         if (lastPlayed !== '') {
@@ -24,9 +35,8 @@ function toggle(soundtrack) {
                 g.sound.setBuffer(buffer);
                 play();
             },
-            xhr => {
-                const loadPercentage = Math.round(xhr.loaded / xhr.total * 100);
-                g.playBtnElem.innerHTML = `loading ${loadPercentage}%`;
+            () => {
+                ui.playBtnElem.innerHTML = `loading...`;
             },
             xhr => console.log(xhr)
         );
@@ -34,16 +44,6 @@ function toggle(soundtrack) {
     } else {
         play();
     }
-}
-
-function play() {
-    g.sound.play();
-    g.playBtnElem.innerHTML = 'pause';
-}
-
-function pause() {
-    g.sound.pause();
-    g.playBtnElem.innerHTML = 'play';
 }
 
 const audio = {

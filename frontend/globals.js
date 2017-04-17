@@ -14,9 +14,6 @@ const version = '0.1.0';
 const initialWidth = window.innerWidth;
 const initialHeight = window.innerHeight;
 
-/* HUD objects */
-const playBtnElem = document.getElementById('play-button');
-
 /* Game objects */
 const scene = new THREE.Scene();
 const camera = new THREE.OrthographicCamera(
@@ -29,17 +26,11 @@ const listener = new THREE.AudioListener();
 const audioLoader = new THREE.AudioLoader();
 const sound = new THREE.Audio(listener);
 
-scene.background = new THREE.Color(0xFFFFFF);
-camera.add(listener);
-
 const globals = {
     title,
     version,
     initialWidth,
     initialHeight,
-
-    playBtnElem,
-
     scene,
     camera,
     renderer,

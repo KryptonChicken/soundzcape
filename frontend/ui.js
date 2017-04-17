@@ -1,34 +1,43 @@
 /**
  * frontend/ui.js
  * ~~~~~~~~~~~~~~
- * This module controls the user interface, aka the HUD.
+ * This module controls the user interface, aka the HUD. All HUD elements
+ * operate at a higher z-level (on top) than THREE.js' game objects.
  */
 
 import g from './globals';
 import audio from './audio';
-import utils from './utils';
 
+const playBtnElem = document.getElementById('play-button');
 const musicSelElem = document.getElementById('music-selection');
 
-// Music control: track selection, play control
-let musicList = [];
-fetch('/api/music')
-    .then(utils.checkFetchStatus)
-    .then(utils.jsonData)
-    .then(response => {
-        if (response.status === 'ok') {
-            // All soundtrack are located in the music/ route.
-            musicList = response.music_list.map(file => `music/${file}`);
+function populateMusicList(musicList) {
+    musicSelElem.innerHTML = musicList
+        .map(file => `music/${file}`)
+        .map(file => `<option value="${file}">${file}</option>`)
+        .join('');
+}
 
-            musicSelElem.innerHTML = musicList
-                .map(file => `<option value="${file}">${file}</option>`)
-                .join('');
-        } else {
-            return Promise.reject(response.reason);
-        }
-    })
-    .catch(err => console.log(err));
-
-g.playBtnElem.addEventListener('click', () => {
+playBtnElem.addEventListener('click', () => {
     audio.toggle(musicSelElem.value);
 });
+
+window.addEventListener('resize', () => {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    g.renderer.setSize(width, height);
+    g.camera.left = -width / 2;
+    g.camera.right = width / 2;
+    g.camera.top = height / 2;
+    g.camera.bottom = -height / 2;
+
+    g.camera.updateProjectionMatrix();
+}, false);
+
+const ui = {
+    playBtnElem,
+    populateMusicList
+};
+
+export default ui;
